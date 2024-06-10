@@ -14,7 +14,7 @@ function setupControls() {
     });
     document.getElementById('zoom-out').addEventListener('click', () => {
         alert('Zoom Out clicked');
-        // t zoom out functionality here
+        // zoom out functionality here
     });
     document.getElementById('pan-left').addEventListener('click', () => {
         alert('Pan Left clicked');
@@ -30,7 +30,7 @@ function setupControls() {
     });
     document.getElementById('pan-down').addEventListener('click', () => {
         alert('Pan Down clicked');
-        //t pan down functionality here
+        // pan down functionality here
     });
 }
 
