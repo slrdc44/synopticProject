@@ -1,8 +1,6 @@
 
 
-let map, heatmap,landMineData,pointArray,marker;
-
-const country = "Cambodia"
+let map, heatmap,landMineData,pointArray;
 
 function dataFiller(coord){
   pointArray.push(new google.maps.LatLng(coord.lat,coord.lng));
@@ -10,12 +8,6 @@ function dataFiller(coord){
 
 function onResponse(response){
   return response.text();
-}
-
-
-const newPoint ={
-  lat : null,
-  lng : null
 }
 
 function processSubmit(){
@@ -45,27 +37,6 @@ function pointLoader(){
   pointArray = new google.maps.MVCArray();
 }
 
-async function checkCountry(){
-  var check = false;
-  geocoder = new google.maps.Geocoder();
-  await geocoder.geocode({location: newPoint})
-  .then((response) =>{
-    for(i = 0; response.results.length > i; i++){
-      console.log(response.results[i]);
-      result = response.results[i];
-      if (result.formatted_address.includes(country)){
-        check = true;
-        break;
-      }
-      else{
-        i++;
-      }
-    }
-  })
-  return check;
-}
-
-
 
 async function initMap() {
   pointLoader();
@@ -81,70 +52,6 @@ async function initMap() {
     data: pointArray,
     map: map,
   });
-
-  submitButton.addEventListener("click", async =>{
-    const email = document.getElementById("email").value;
-    console.log(email);
-    if(email.includes("@")){
-      if(newPoint.lat != null){
-        if(marker.getMap() != null){
-          processSubmit();
-          marker.setMap(null);
-        }
-        else{
-          window.alert("You have already placed a marker!")
-        }
-      }
-      else{
-        window.alert("You haven't given a location!")
-      }
-    }
-    else{
-      window.alert("Not a valid email format!");
-    }
-  });
-
-  map.addListener("click", async (e) => {
-    addedPosition = e.latLng.toString();
-    addedPosition = addedPosition.replace(/[()]/g,"");
-    separatedPositions = addedPosition.split(",");
-    console.log(separatedPositions);
-    newPoint.lat = eval(separatedPositions[0]);
-    newPoint.lng = eval(separatedPositions[1]);
-    isCountry =  await checkCountry();
-    console.log(isCountry);
-    if (isCountry == true){
-      placeMarkerAndPanTo(e.latLng, map);
-    }
-    else{
-      console.log("neenurr");
-      window.alert("Not in Cambodia!");
-    }
-  });
-
-
 }
-
-function placeMarkerAndPanTo(latLng, map) {
-  if ( marker ) {
-    marker.setPosition(latLng);
-  } else {
-    marker = new google.maps.Marker({
-      position: latLng,
-      map: map
-    });
-  }
-  map.panTo(latLng);
-}
-
-
-
-
-
-
-  
-
-
-
 
 window.initMap = initMap;
