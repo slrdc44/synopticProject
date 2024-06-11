@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine Detection Heat Map</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="hamburger.js"defer></script>
+    <script src="script.js"></script>
+    <script src="map.js"></script>
+
+</head>
+<body>
+
+<header>
+    <h1>Pu Ngaol Mine Detection</h1>
+
+    <a id="hamburger" href="#">
+        <i class="fa-solid fa-bars"></i> 
+    </a>
+
+    <nav>
+        <ul id="navbar">
+            <li class="nav active"><a href="index.html"><strong>Heatmap</strong></a></li>
+            <li class="nav"><a href="info.html"><strong>Information</strong></a></li>
+                
+        </ul>
+    </nav>
+</header>
+
+
+<main>
+    <h2>Navigate the Heat Map</h2>
+    <div id="controls">
+        <button id="zoom-in"><i class="fas fa-search-plus"></i></button>
+        <button id="zoom-out"><i class="fas fa-search-minus"></i></button>
+        <button id="pan-left"><i class="fas fa-arrow-left"></i></button>
+        <button id="pan-right"><i class="fas fa-arrow-right"></i></button>
+        <button id="pan-up"><i class="fas fa-arrow-up"></i></button>
+        <button id="pan-down"><i class="fas fa-arrow-down"></i></button>
+    </div>
+    <div id="floating-panel">
+        <input id="email" type="text" value="aaaa@email.com" />
+        <input id="submit" type="button" value="Submit" />
+      </div>
+    <div id="heatmap"></div>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsMOtehwfPLoWz68dZZU5MVJ4INVe_-kk&loading=async&libraries=visualization&callback=initMap"></script>
+    
+</main>
+
+<footer>
+    <p>2024 Group 6</p>
+</footer>
+
+</body>
+</html>
