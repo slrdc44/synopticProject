@@ -134,7 +134,7 @@ function placeMarkerAndPanTo(latLng, map) {
     marker = new google.maps.Marker({
       position: latLng,
       map: map
-    });
+    }); 
   }
   map.panTo(latLng);
 }
