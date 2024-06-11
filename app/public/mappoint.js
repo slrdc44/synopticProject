@@ -69,6 +69,7 @@ async function checkCountry(){
 
 async function initMap() {
   pointLoader();
+  var currentLocation = null;
   const submitButton = document.getElementById("submit");
   const infoWindow = new google.maps.InfoWindow();
   map = new google.maps.Map(document.getElementById("heatmap"), {
@@ -89,6 +90,7 @@ async function initMap() {
       if(newPoint.lat != null){
         if(marker.getMap() != null){
           processSubmit();
+          pointArray.push(currentLocation.latLng);
           marker.setMap(null);
         }
         else{
@@ -114,10 +116,10 @@ async function initMap() {
     isCountry =  await checkCountry();
     console.log(isCountry);
     if (isCountry == true){
+      currentLocation = e;
       placeMarkerAndPanTo(e.latLng, map);
     }
     else{
-      console.log("neenurr");
       window.alert("Not in Cambodia!");
     }
   });

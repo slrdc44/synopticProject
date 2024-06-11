@@ -10,19 +10,6 @@ function onResponse(response){
   return response.text();
 }
 
-function processSubmit(){
-  console.log("woof");
-  const fetchOptions = {
-    method: "POST",
-    headers:{
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify(newPoint)
-  }
-  fetch("http://localhost:3000/newpoint",fetchOptions)
-  .then(onResponse);
-}
 
 function pointLoader(){
 
