@@ -22,6 +22,10 @@ app.get("/addpoint", (req,res) =>{
     res.render(__dirname + "/views/addpoint")
 });
 
+app.get("/info", (req,res) =>{
+    res.render(__dirname + "/views/info")
+});
+
 app.listen(port, ()=>{
     console.log(`Listening on port ${port}`)
 });

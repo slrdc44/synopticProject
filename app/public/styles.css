@@ -146,6 +146,10 @@ footer {
     top: 40px;
 }
 
+.hideNav{
+    visibility: hidden;
+}
+
 
 
 }

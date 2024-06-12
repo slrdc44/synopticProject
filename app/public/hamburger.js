@@ -1,9 +1,14 @@
+
+
+
+
 function toggleNav() { 
-    let links = document.querySelector (".mainNav");
-    links.classList.toggle('showNav');
+    let links = document.getElementById("navbar");
+    links.classList.toggle("hideNav");
+    console.log(links);
     
-    }
+}
     
     
-    let hamburger = document.querySelector("#hamburger");
-    hamburger.addEventListener('click', toggleNav, useCapture);
+let hamburger = document.getElementById("hamburger");
+hamburger.addEventListener('click',toggleNav);
